@@ -45,7 +45,7 @@ const SpotifyPlayer = () => {
     }
 
     function next() {
-        if(songId >= 1 && songId < songs.length - 2) {
+        if(songId >= 1 && songId <= songs.length - 1) {
         console.log("IDDDD:" + songId);
         setSongId(songId + 1)
         console.log(songId)
@@ -55,7 +55,7 @@ const SpotifyPlayer = () => {
         setPlayingSong(true);
         } else {
             setSongId(1);
-            let urlCompleta = songURL + songs[songId - 1].url;
+            let urlCompleta = songURL + songs[0].url;
             audio.current.src = urlCompleta;
             audio.current.play();
             setPlayingSong(true);
@@ -63,10 +63,10 @@ const SpotifyPlayer = () => {
     }
 
     function prev() {
-        if(songId < songs.length && songId >= 2) {
+        if(songId <= songs.length && songId >= 2) {
             setSongId(songId - 1)
             console.log(songId)
-            let urlCompleta = songURL + songs[songId].url;
+            let urlCompleta = songURL + songs[songId -1].url;
             audio.current.src = urlCompleta;
             audio.current.play();
             setPlayingSong(true);
